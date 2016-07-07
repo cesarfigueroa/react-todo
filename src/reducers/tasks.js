@@ -1,0 +1,24 @@
+import { ADD_TASK, TOGGLE_TASK } from '../actions';
+
+const tasks = (state = [], action) => {
+  switch (action.type) {
+  case ADD_TASK:
+    return [...state, {
+      id: action.id,
+      title: action.title,
+      isComplete: action.isComplete
+    }];
+  case TOGGLE_TASK:
+    return state.map(task => {
+      if (task.id === action.id) {
+        return Object.assign({}, task, { isComplete: !task.isComplete });
+      } else {
+        return task;
+      }
+    });
+  default:
+    return state;
+  }
+};
+
+export default tasks;
