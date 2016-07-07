@@ -13,7 +13,7 @@ const Task = ({ title, isComplete, onClick }) => {
 Task.propTypes = {
   title: React.PropTypes.string.isRequired,
   isComplete: React.PropTypes.bool.isRequired,
-  onClick: React.PropTypes.func.isRequired
+  onClick: React.PropTypes.func
 };
 
 export default Task;

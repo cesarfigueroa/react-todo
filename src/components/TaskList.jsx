@@ -19,7 +19,7 @@ const TaskList = ({ tasks, onClick }) => {
 
 TaskList.propTypes = {
   tasks: React.PropTypes.arrayOf(React.PropTypes.object).isRequired,
-  onClick: React.PropTypes.func.isRequired
+  onClick: React.PropTypes.func
 };
 
 export default TaskList;
