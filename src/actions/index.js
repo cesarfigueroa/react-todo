@@ -3,8 +3,7 @@ export function addTask(id, title) {
   return {
     type: ADD_TASK,
     id: id,
-    title: title,
-    isComplete: false
+    title: title
   };
 }
 

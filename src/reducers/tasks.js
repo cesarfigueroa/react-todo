@@ -6,7 +6,7 @@ const tasks = (state = [], action) => {
     return [...state, {
       id: action.id,
       title: action.title,
-      isComplete: action.isComplete
+      isComplete: false
     }];
   case TOGGLE_TASK:
     return state.map(task => {
