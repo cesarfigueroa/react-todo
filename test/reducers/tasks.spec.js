@@ -1,6 +1,5 @@
 import { expect } from 'chai';
 import reducer from '../../src/reducers/tasks';
-import { ADD_TASK, TOGGLE_TASK } from '../../src/actions';
 
 describe('tasks reducer', function() {
   it('returns the initial state', function() {
@@ -10,7 +9,7 @@ describe('tasks reducer', function() {
   describe('ADD_TASK', function() {
     it('adds a task', function() {
       expect(reducer([], {
-        type: ADD_TASK,
+        type: 'ADD_TASK',
         id: 1,
         title: 'Task 1'
       })).to.eql([
@@ -40,7 +39,7 @@ describe('tasks reducer', function() {
         ];
 
         expect(reducer(currentState, {
-          type: TOGGLE_TASK,
+          type: 'TOGGLE_TASK',
           id: 2
         })).to.eql([
           {
@@ -68,7 +67,7 @@ describe('tasks reducer', function() {
         ];
 
         expect(reducer(currentState, {
-          type: TOGGLE_TASK,
+          type: 'TOGGLE_TASK',
           id: 100
         })).to.eql(currentState);
       });
