@@ -1,0 +1,11 @@
+.checkbox {
+  background: $color-lightGray;
+  border-radius: 3px;
+  display: inline-block;
+  height: 15px;
+  width: 15px;
+}
+
+.checkbox--checked {
+  background: $color-green;
+}

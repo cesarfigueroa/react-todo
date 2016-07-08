@@ -1,7 +1,9 @@
 import React from 'react';
 
 const Checkbox = ({ isChecked }) => {
-  return <span>{isChecked ? '[x]' : '[ ]'}</span>;
+  return (
+    <b className={`checkbox ${isChecked ? 'checkbox--checked' : ''}`} />
+  );
 };
 
 Checkbox.propTypes = {

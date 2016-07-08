@@ -23,6 +23,7 @@ class TaskForm extends React.Component {
   render() {
     return (
       <input
+        className="taskForm"
         type="text"
         placeholder="What would you like to get done?"
         ref={node => this.input = node}

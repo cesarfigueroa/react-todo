@@ -4,7 +4,8 @@
   "description": "React/Redux todo app",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server",
+    "start": "gulp assets:watch",
+    "build": "gulp assets",
     "lint": "eslint . --ext .js,.jsx",
     "test": "mocha --compilers js:babel-register --recursive --inline-diffs"
   },
@@ -38,8 +39,11 @@
     "babel-register": "^6.9.0",
     "chai": "^3.5.0",
     "chai-spies": "^0.7.1",
+    "del": "^2.2.1",
     "eslint": "^3.0.1",
     "eslint-plugin-react": "^5.2.2",
+    "gulp": "^3.9.1",
+    "gulp-sass": "^2.3.2",
     "mocha": "^2.5.3",
     "react-addons-test-utils": "^15.2.0",
     "webpack": "^1.13.1",
