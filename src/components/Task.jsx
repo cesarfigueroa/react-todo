@@ -3,9 +3,11 @@ import Checkbox from './Checkbox';
 
 const Task = ({ title, isComplete, onClick }) => {
   return (
-    <div onClick={onClick}>
+    <div className="task" onClick={onClick}>
       <Checkbox isChecked={isComplete} />
-      <span>{title}</span>
+      <span
+        className={`task-title ${isComplete ? 'task-title--completed' : ''}`}
+      >{title}</span>
     </div>
   );
 };

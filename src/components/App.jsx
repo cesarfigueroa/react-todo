@@ -6,8 +6,8 @@ import TaskListContainer from '../containers/TaskListContainer';
 const App = () => {
   return (
     <div>
-      <TaskForm />
       <TaskListContainer />
+      <TaskForm />
     </div>
   );
 };

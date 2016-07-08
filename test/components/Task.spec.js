@@ -27,7 +27,7 @@ describe('Task', function() {
     expect(this.result.props.onClick).to.eql(this.props.onClick);
     expect(this.result.props.children).to.eql([
       <Checkbox isChecked={true} />,
-      <span>Buy bread</span>
+      <span className="task-title task-title--completed">Buy bread</span>
     ]);
   });
 

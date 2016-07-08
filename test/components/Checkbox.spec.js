@@ -6,13 +6,24 @@ import Checkbox from '../../src/components/Checkbox';
 
 describe('Checkbox', function() {
   before(function() {
-    let renderer = ReactTestUtils.createRenderer();
-    renderer.render(<Checkbox isChecked={true} />);
-
-    this.result = renderer.getRenderOutput();
+    this.renderer = ReactTestUtils.createRenderer();
   });
 
-  it('renders', function() {
-    expect(this.result.props.children).to.eql('[x]');
+  context('when it is not checked', function() {
+    it('renders', function() {
+      this.renderer.render(<Checkbox isChecked={false} />);
+
+      expect(this.renderer.getRenderOutput().props.className)
+        .to.equal('checkbox ');
+    });
+  });
+
+  context('when it is checked', function() {
+    it('renders with the checked class', function() {
+      this.renderer.render(<Checkbox isChecked={true} />);
+
+      expect(this.renderer.getRenderOutput().props.className)
+        .to.equal('checkbox checkbox--checked');
+    });
   });
 });
