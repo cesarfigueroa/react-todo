@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { addTask, toggleTask } from '../../src/actions';
+import { addTask, toggleTask, editTask } from '../../src/actions';
 
 describe('task actions', function() {
   describe('addTask', function() {
@@ -17,6 +17,16 @@ describe('task actions', function() {
       expect(toggleTask(1)).to.eql({
         type: 'TOGGLE_TASK',
         id: 1
+      });
+    });
+  });
+
+  describe('editTask', function() {
+    it('creates an EDIT_TASK action', function() {
+      expect(editTask(1, 'Task 1')).to.eql({
+        type: 'EDIT_TASK',
+        id: 1,
+        title: 'Task 1'
       });
     });
   });
