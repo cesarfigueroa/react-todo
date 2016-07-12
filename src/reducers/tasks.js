@@ -1,21 +1,19 @@
+import Immutable from 'immutable';
 import { ADD_TASK, TOGGLE_TASK } from '../constants/actionTypes';
 
-const tasks = (state = [], action) => {
+const tasks = (state = Immutable.List(), action) => {
   switch (action.type) {
   case ADD_TASK:
-    return [...state, {
+    return state.push(Immutable.Map({
       id: action.id,
       title: action.title,
       isComplete: false
-    }];
+    }));
   case TOGGLE_TASK:
-    return state.map(task => {
-      if (task.id === action.id) {
-        return Object.assign({}, task, { isComplete: !task.isComplete });
-      } else {
-        return task;
-      }
-    });
+    return state.update(
+      state.findIndex(task => task.get('id') === action.id),
+      task => task.set('isComplete', !task.get('isComplete'))
+    );
   default:
     return state;
   }

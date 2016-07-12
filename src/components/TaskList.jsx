@@ -1,3 +1,4 @@
+import Immutable from 'immutable';
 import React from 'react';
 import Task from '../components/Task';
 
@@ -7,9 +8,10 @@ const TaskList = ({ tasks, onClick }) => {
       {tasks.map(task => {
         return (
           <Task
-            key={task.id}
-            onClick={() => onClick(task.id)}
-            {...task}
+            key={task.get('id')}
+            title={task.get('title')}
+            isComplete={task.get('isComplete')}
+            onClick={() => onClick(task.get('id'))}
           />
         );
       })}
@@ -18,7 +20,7 @@ const TaskList = ({ tasks, onClick }) => {
 };
 
 TaskList.propTypes = {
-  tasks: React.PropTypes.arrayOf(React.PropTypes.object).isRequired,
+  tasks: React.PropTypes.instanceOf(Immutable.List).isRequired,
   onClick: React.PropTypes.func
 };
 

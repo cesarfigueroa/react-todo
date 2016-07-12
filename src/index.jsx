@@ -1,3 +1,4 @@
+import Immutable from 'immutable';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { createStore } from 'redux';
@@ -8,7 +9,8 @@ import App from './components/App';
 
 const store = createStore(
   rootReducer,
-  JSON.parse(localStorage.getItem('store')) || undefined
+  // JSON.parse(localStorage.getItem('store')) || undefined
+  Immutable.fromJS(JSON.parse(localStorage.getItem('store')))
 );
 
 ReactDOM.render(
