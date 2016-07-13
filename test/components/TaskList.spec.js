@@ -1,4 +1,5 @@
 import { expect } from 'chai';
+import { List, Map } from 'immutable';
 import React from 'react';
 import ReactTestUtils from 'react-addons-test-utils';
 
@@ -6,13 +7,13 @@ import TaskList from '../../src/components/TaskList';
 
 describe('TaskList', function() {
   before(function() {
-    let tasks = [
-      {
+    let tasks = List([
+      Map({
         id: 1,
         title: 'Buy bread',
         isComplete: true
-      }
-    ];
+      })
+    ]);
 
     let renderer = ReactTestUtils.createRenderer();
     renderer.render(<TaskList tasks={tasks} onClick={f => f} />);
