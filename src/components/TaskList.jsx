@@ -1,4 +1,4 @@
-import Immutable from 'immutable';
+import { List } from 'immutable';
 import React from 'react';
 import Task from '../components/Task';
 
@@ -20,7 +20,7 @@ const TaskList = ({ tasks, onClick }) => {
 };
 
 TaskList.propTypes = {
-  tasks: React.PropTypes.instanceOf(Immutable.List).isRequired,
+  tasks: React.PropTypes.instanceOf(List).isRequired,
   onClick: React.PropTypes.func
 };
 

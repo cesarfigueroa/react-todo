@@ -6,7 +6,7 @@ import TaskList from '../components/TaskList';
 
 const mapStateToProps = state => {
   return {
-    tasks: state.tasks
+    tasks: state.get('tasks')
   };
 };
 

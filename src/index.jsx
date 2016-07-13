@@ -9,8 +9,7 @@ import App from './components/App';
 
 const store = createStore(
   rootReducer,
-  // JSON.parse(localStorage.getItem('store')) || undefined
-  Immutable.fromJS(JSON.parse(localStorage.getItem('store')))
+  Immutable.fromJS(JSON.parse(localStorage.getItem('store'))) || undefined
 );
 
 ReactDOM.render(
