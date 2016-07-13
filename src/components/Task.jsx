@@ -1,13 +1,14 @@
 import React from 'react';
 import Checkbox from './Checkbox';
 
-const Task = ({ title, isComplete, onClick }) => {
+const Task = ({ title, isComplete, onToggleClick, onRemoveClick }) => {
   return (
-    <div className="task" onClick={onClick}>
-      <Checkbox isChecked={isComplete} />
+    <div className="task">
+      <Checkbox isChecked={isComplete} onClick={onToggleClick} />
       <span
         className={`task-title ${isComplete ? 'task-title--completed' : ''}`}
       >{title}</span>
+      <button onClick={onRemoveClick}>Remove</button>
     </div>
   );
 };

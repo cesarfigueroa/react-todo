@@ -1,8 +1,11 @@
 import React from 'react';
 
-const Checkbox = ({ isChecked }) => {
+const Checkbox = ({ isChecked, onClick }) => {
   return (
-    <b className={`checkbox ${isChecked ? 'checkbox--checked' : ''}`} />
+    <b
+      onClick={onClick}
+      className={`checkbox ${isChecked ? 'checkbox--checked' : ''}`}
+    />
   );
 };
 

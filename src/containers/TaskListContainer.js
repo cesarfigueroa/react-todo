@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import { toggleTask } from '../actions';
+import { toggleTask, removeTask } from '../actions';
 import TaskList from '../components/TaskList';
 
 const mapStateToProps = state => {
@@ -11,8 +11,11 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    onClick: id => {
+    onToggleClick: id => {
       dispatch(toggleTask(id));
+    },
+    onRemoveClick: id => {
+      dispatch(removeTask(id));
     }
   };
 };

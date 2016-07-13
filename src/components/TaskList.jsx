@@ -1,14 +1,15 @@
 import React from 'react';
 import Task from '../components/Task';
 
-const TaskList = ({ tasks, onClick }) => {
+const TaskList = ({ tasks, onToggleClick, onRemoveClick }) => {
   return (
     <div>
       {tasks.map(task => {
         return (
           <Task
             key={task.id}
-            onClick={() => onClick(task.id)}
+            onToggleClick={() => onToggleClick(task.id)}
+            onRemoveClick={() => onRemoveClick(task.id)}
             {...task}
           />
         );
