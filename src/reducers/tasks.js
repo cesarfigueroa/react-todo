@@ -10,10 +10,13 @@ const tasks = (state = List(), action) => {
       isComplete: false
     }));
   case TOGGLE_TASK:
-    return state.update(
-      state.findIndex(task => task.get('id') === action.id),
-      task => task.set('isComplete', !task.get('isComplete'))
-    );
+    return state.map(task => {
+      if (task.get('id') === action.id) {
+        return task.set('isComplete', !task.get('isComplete'));
+      } else {
+        return task;
+      }
+    });
   default:
     return state;
   }
