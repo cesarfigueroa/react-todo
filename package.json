@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "gulp assets:watch",
-    "build": "gulp assets",
+    "build": "NODE_ENV=production gulp assets",
     "lint": "eslint . --ext .js,.jsx",
     "test": "mocha --compilers js:babel-register --recursive --inline-diffs"
   },
@@ -44,6 +44,7 @@
     "eslint-plugin-react": "^5.2.2",
     "gulp": "^3.9.1",
     "gulp-sass": "^2.3.2",
+    "gulp-uglify": "^1.5.4",
     "mocha": "^2.5.3",
     "react-addons-test-utils": "^15.2.0",
     "webpack": "^1.13.1",
