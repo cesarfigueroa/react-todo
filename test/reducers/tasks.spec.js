@@ -73,4 +73,41 @@ describe('tasks reducer', function() {
       });
     });
   });
+
+  describe('REMOVE_TASK', function() {
+    context('given an existing task id', function() {
+      it('removes the task', function() {
+        let currentState = [
+          { id: 1, title: 'Task 1', isComplete: false },
+          { id: 2, title: 'Task 2', isComplete: false },
+          { id: 3, title: 'Task 3', isComplete: true }
+        ];
+
+        let newState = [
+          { id: 1, title: 'Task 1', isComplete: false },
+          { id: 3, title: 'Task 3', isComplete: true }
+        ];
+
+        expect(reducer(currentState, {
+          type: 'REMOVE_TASK',
+          id: 2
+        })).to.eql(newState);
+      });
+    });
+
+    context('given a missing task id', function() {
+      it('returns the current state', function() {
+        let currentState = [
+          { id: 1, title: 'Task 1', isComplete: false },
+          { id: 2, title: 'Task 2', isComplete: false },
+          { id: 3, title: 'Task 3', isComplete: true }
+        ];
+
+        expect(reducer(currentState, {
+          type: 'REMOVE_TASK',
+          id: 100
+        })).to.eql(currentState);
+      });
+    });
+  });
 });

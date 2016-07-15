@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { addTask, toggleTask } from '../../src/actions';
+import { addTask, toggleTask, removeTask } from '../../src/actions';
 
 describe('task actions', function() {
   describe('addTask', function() {
@@ -18,6 +18,13 @@ describe('task actions', function() {
         type: 'TOGGLE_TASK',
         id: 1
       });
+    });
+  });
+
+  describe('removeTask', function() {
+    expect(removeTask(1)).to.eql({
+      type: 'REMOVE_TASK',
+      id: 1
     });
   });
 });
