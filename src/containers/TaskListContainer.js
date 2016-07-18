@@ -1,3 +1,4 @@
+import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 import { toggleTask } from '../actions';
@@ -10,11 +11,9 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => {
-  return {
-    onClick: id => {
-      dispatch(toggleTask(id));
-    }
-  };
+  return bindActionCreators({
+    onClick: toggleTask
+  }, dispatch);
 };
 
 const TaskListContainer = connect(
