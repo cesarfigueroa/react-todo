@@ -26,7 +26,7 @@ describe('Task', function() {
     expect(this.renderer.getRenderOutput().props.children).to.eql([
       <Checkbox isChecked={true} onClick={this.props.onToggleClick} />,
       <span className="task-title task-title--completed">Buy bread</span>,
-      <button onClick={this.props.onRemoveClick}>x</button>
+      <button className="task-button" onClick={this.props.onRemoveClick}>&times;</button>
     ]);
   });
 
@@ -37,7 +37,7 @@ describe('Task', function() {
       expect(this.renderer.getRenderOutput().props.children).to.eql([
         <Checkbox isChecked={false} onClick={this.props.onToggleClick} />,
         <span className="task-title">Buy bread</span>,
-        <button onClick={this.props.onRemoveClick}>x</button>
+        <button className="task-button" onClick={this.props.onRemoveClick}>&times;</button>
       ]);
     });
   });

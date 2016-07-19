@@ -12,7 +12,7 @@ const Task = ({ title, isComplete, onToggleClick, onRemoveClick }) => {
     <div className="task">
       <Checkbox isChecked={isComplete} onClick={onToggleClick} />
       <span className={titleClass}>{title}</span>
-      <button onClick={onRemoveClick}>x</button>
+      <button className="task-button" onClick={onRemoveClick}>&times;</button>
     </div>
   );
 };
