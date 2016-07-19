@@ -2,7 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 import Checkbox from './Checkbox';
 
-const Task = ({ title, isComplete, onClick }) => {
+const Task = ({ title, isComplete, onToggleClick, onRemoveClick }) => {
   let titleClass = classNames({
     'task-title': true,
     'task-title--completed': isComplete
@@ -10,8 +10,9 @@ const Task = ({ title, isComplete, onClick }) => {
 
   return (
     <div className="task">
-      <Checkbox isChecked={isComplete} onClick={onClick} />
+      <Checkbox isChecked={isComplete} onClick={onToggleClick} />
       <span className={titleClass}>{title}</span>
+      <button onClick={onRemoveClick}>x</button>
     </div>
   );
 };
