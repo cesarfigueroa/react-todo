@@ -1,12 +1,13 @@
 import React from 'react';
+import classNames from 'classnames';
 
 const Checkbox = ({ isChecked, onClick }) => {
-  return (
-    <b
-      className={`checkbox ${isChecked ? 'checkbox--checked' : ''}`}
-      onClick={onClick}
-    />
-  );
+  let checkboxClass = classNames({
+    'checkbox': true,
+    'checkbox--checked': isChecked
+  });
+
+  return <b className={checkboxClass} onClick={onClick} />;
 };
 
 Checkbox.propTypes = {

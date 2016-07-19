@@ -18,7 +18,7 @@ describe('Checkbox', function() {
         this.renderer.render(<Checkbox {...this.props} isChecked={false} />);
 
         expect(this.renderer.getRenderOutput().props.className)
-          .to.equal('checkbox ');
+          .to.equal('checkbox');
       });
     });
 

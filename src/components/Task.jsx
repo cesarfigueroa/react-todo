@@ -1,13 +1,17 @@
 import React from 'react';
+import classNames from 'classnames';
 import Checkbox from './Checkbox';
 
 const Task = ({ title, isComplete, onClick }) => {
+  let titleClass = classNames({
+    'task-title': true,
+    'task-title--completed': isComplete
+  });
+
   return (
     <div className="task" onClick={onClick}>
       <Checkbox isChecked={isComplete} />
-      <span
-        className={`task-title ${isComplete ? 'task-title--completed' : ''}`}
-      >{title}</span>
+      <span className={titleClass}>{title}</span>
     </div>
   );
 };

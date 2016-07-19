@@ -26,6 +26,7 @@
   },
   "homepage": "https://github.com/cesarfigueroa/react-todo#readme",
   "dependencies": {
+    "classnames": "^2.2.5",
     "react": "^15.2.0",
     "react-dom": "^15.2.0",
     "react-redux": "^4.4.5",

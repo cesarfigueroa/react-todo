@@ -2,7 +2,6 @@ import Chai, { expect } from 'chai';
 import spies from 'chai-spies';
 import React from 'react';
 import ReactTestUtils from 'react-addons-test-utils';
-
 import Task from '../../src/components/Task';
 import Checkbox from '../../src/components/Checkbox';
 
@@ -16,19 +15,29 @@ describe('Task', function() {
       onClick: Chai.spy()
     };
 
-    let renderer = ReactTestUtils.createRenderer();
-    renderer.render(<Task {...props} />);
-
     this.props = props;
-    this.result = renderer.getRenderOutput();
+    this.renderer = ReactTestUtils.createRenderer();
   });
 
   it('renders', function() {
-    expect(this.result.props.onClick).to.eql(this.props.onClick);
-    expect(this.result.props.children).to.eql([
+    this.renderer.render(<Task {...this.props} />);
+
+    expect(this.renderer.getRenderOutput().props.onClick).to.eql(this.props.onClick);
+    expect(this.renderer.getRenderOutput().props.children).to.eql([
       <Checkbox isChecked={true} />,
       <span className="task-title task-title--completed">Buy bread</span>
     ]);
+  });
+
+  context('when complete', function() {
+    it('renders with the completed class', function() {
+      this.renderer.render(<Task {...this.props} isComplete={false} />);
+
+      expect(this.renderer.getRenderOutput().props.children).to.eql([
+        <Checkbox isChecked={false} />,
+        <span className="task-title">Buy bread</span>
+      ]);
+    });
   });
 
   context('when clicked', function() {
