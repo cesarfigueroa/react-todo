@@ -1,13 +1,17 @@
 import React from 'react';
 
-const Checkbox = ({ isChecked }) => {
+const Checkbox = ({ isChecked, onClick }) => {
   return (
-    <b className={`checkbox ${isChecked ? 'checkbox--checked' : ''}`} />
+    <b
+      className={`checkbox ${isChecked ? 'checkbox--checked' : ''}`}
+      onClick={onClick}
+    />
   );
 };
 
 Checkbox.propTypes = {
-  isChecked: React.PropTypes.bool.isRequired
+  isChecked: React.PropTypes.bool.isRequired,
+  onClick: React.PropTypes.func
 };
 
 export default Checkbox;
