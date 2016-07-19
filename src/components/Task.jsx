@@ -9,8 +9,8 @@ const Task = ({ title, isComplete, onClick }) => {
   });
 
   return (
-    <div className="task" onClick={onClick}>
-      <Checkbox isChecked={isComplete} />
+    <div className="task">
+      <Checkbox isChecked={isComplete} onClick={onClick} />
       <span className={titleClass}>{title}</span>
     </div>
   );

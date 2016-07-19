@@ -22,9 +22,8 @@ describe('Task', function() {
   it('renders', function() {
     this.renderer.render(<Task {...this.props} />);
 
-    expect(this.renderer.getRenderOutput().props.onClick).to.eql(this.props.onClick);
     expect(this.renderer.getRenderOutput().props.children).to.eql([
-      <Checkbox isChecked={true} />,
+      <Checkbox isChecked={true} onClick={this.props.onClick} />,
       <span className="task-title task-title--completed">Buy bread</span>
     ]);
   });
@@ -34,7 +33,7 @@ describe('Task', function() {
       this.renderer.render(<Task {...this.props} isComplete={false} />);
 
       expect(this.renderer.getRenderOutput().props.children).to.eql([
-        <Checkbox isChecked={false} />,
+        <Checkbox isChecked={false} onClick={this.props.onClick} />,
         <span className="task-title">Buy bread</span>
       ]);
     });
@@ -42,7 +41,9 @@ describe('Task', function() {
 
   context('when clicked', function() {
     it('calls the onClick function', function() {
-      this.props.onClick();
+      this.renderer.render(<Task {...this.props} />);
+
+      this.renderer.getRenderOutput().props.children[0].props.onClick();
 
       expect(this.props.onClick).to.have.been.called.once;
     });
