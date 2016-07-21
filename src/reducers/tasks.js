@@ -1,4 +1,4 @@
-import { ADD_TASK, TOGGLE_TASK } from '../constants/actionTypes';
+import { ADD_TASK, TOGGLE_TASK, REMOVE_TASK } from '../constants/actionTypes';
 
 const tasks = (state = [], action) => {
   switch (action.type) {
@@ -16,6 +16,8 @@ const tasks = (state = [], action) => {
         return task;
       }
     });
+  case REMOVE_TASK:
+    return state.filter(task => task.id !== action.id);
   default:
     return state;
   }

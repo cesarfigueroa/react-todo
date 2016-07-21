@@ -2,16 +2,36 @@
   -webkit-user-select: none;
   align-items: center;
   border-bottom: 1px solid $color-lightGray;
-  cursor: pointer;
   display: flex;
-  padding: 16px;
+  height: 54px;
+  padding: 0 16px;
 }
 
 .task-title {
+  flex: 1;
   font: 15px 'Helvetica Neue';
   padding-left: 12px;
 }
 
 .task-title--completed {
   color: gray;
+}
+
+.task-button {
+  background: $color-red;
+  border: 0;
+  border-radius: 3px;
+  color: $color-white;
+  cursor: pointer;
+  display: none;
+  font: 15px 'Helvetica Neue';
+  outline: 0;
+
+  @at-root {
+    .task:hover {
+      .task-button {
+        display: block;
+      }
+    }
+  }
 }
