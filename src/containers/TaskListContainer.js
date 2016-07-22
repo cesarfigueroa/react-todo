@@ -1,7 +1,7 @@
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import { toggleTask, removeTask } from '../actions';
+import { toggleTask, removeTask } from '../actions/tasks';
 import TaskList from '../components/TaskList';
 
 const mapStateToProps = state => {
