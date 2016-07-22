@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { addTask, toggleTask, removeTask } from '../../src/actions';
+import { addTask, toggleTask, removeTask } from '../../src/actions/tasks';
 
 describe('task actions', function() {
   describe('addTask', function() {
