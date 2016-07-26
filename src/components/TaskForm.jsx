@@ -1,17 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
-
+import { v4 as uuid } from 'node-uuid';
 import { addTask } from '../actions/tasks';
 
 class TaskForm extends React.Component {
   addTaskOnKeyDown(event) {
     if (this.input.value.trim() && event.key == 'Enter') {
-      this.props.dispatch(
-        addTask(
-          Math.floor(Math.random() * 10000),
-          this.input.value
-        )
-      );
+      this.props.dispatch(addTask(uuid(), this.input.value));
       this.resetField();
     }
   }
