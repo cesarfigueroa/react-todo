@@ -1,24 +1,22 @@
-import { List, Map } from 'immutable';
+import { Map } from 'immutable';
 import { ADD_TASK, TOGGLE_TASK, REMOVE_TASK } from '../constants/actionTypes';
 
-const tasks = (state = List(), action) => {
+const tasks = (state = Map(), action) => {
   switch (action.type) {
   case ADD_TASK:
-    return state.push(Map({
+    return state.set(action.id, Map({
       id: action.id,
       title: action.title,
       isComplete: false
     }));
   case TOGGLE_TASK:
-    return state.map(task => {
-      if (task.get('id') === action.id) {
+    return state.updateIn([action.id], task => {
+      if (task) {
         return task.update('isComplete', isComplete => !isComplete);
-      } else {
-        return task;
       }
     });
   case REMOVE_TASK:
-    return state.filterNot(task => task.get('id') === action.id);
+    return state.remove(action.id);
   default:
     return state;
   }
