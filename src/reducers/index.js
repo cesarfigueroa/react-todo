@@ -1,6 +1,7 @@
 import { Map } from 'immutable';
 import tasks from './tasks';
 import taskIds from './taskIds';
+import projects from './projects';
 
 const combineReducers = reducers => {
   return (state = Map(), action) => {
@@ -10,4 +11,4 @@ const combineReducers = reducers => {
   };
 };
 
-export default combineReducers({ tasks, taskIds });
+export default combineReducers({ tasks, taskIds, projects });
