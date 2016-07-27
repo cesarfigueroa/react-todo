@@ -1,6 +1,7 @@
 import {
   ADD_PROJECT,
   ADD_TASK_TO_PROJECT,
+  REMOVE_TASK_FROM_PROJECT,
   REMOVE_PROJECT
 } from '../constants/actionTypes';
 
@@ -17,6 +18,14 @@ export function addTaskToProject(projectId, taskId) {
     type: ADD_TASK_TO_PROJECT,
     projectId,
     taskId
+  };
+}
+
+export function removeTaskFromProject(taskId, projectId) {
+  return {
+    type: REMOVE_TASK_FROM_PROJECT,
+    taskId,
+    projectId
   };
 }
 
