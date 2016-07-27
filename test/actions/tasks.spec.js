@@ -22,9 +22,11 @@ describe('task actions', function() {
   });
 
   describe('removeTask', function() {
-    expect(removeTask(1)).to.eql({
-      type: 'REMOVE_TASK',
-      id: 1
+    it('creates a REMOVE_TASK action', function() {
+      expect(removeTask(1)).to.eql({
+        type: 'REMOVE_TASK',
+        id: 1
+      });
     });
   });
 });
