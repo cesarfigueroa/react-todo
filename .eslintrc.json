@@ -37,6 +37,9 @@
     "react/jsx-uses-react": "error",
     "react/jsx-uses-vars": "error",
     "react/prefer-es6-class": "error",
-    "react/jsx-curly-spacing": ["error", "never"]
+    "react/jsx-curly-spacing": ["error", "never"],
+    "react/jsx-no-bind": ["error", {
+      "ignoreRefs": true
+    }]
   }
 }
