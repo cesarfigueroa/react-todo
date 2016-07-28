@@ -4,6 +4,11 @@ import { connect } from 'react-redux';
 import { addTask } from '../actions';
 
 class TaskForm extends React.Component {
+  constructor() {
+    super();
+    this._addTaskOnKeyDown = this.addTaskOnKeyDown.bind(this);
+  }
+
   addTaskOnKeyDown(event) {
     if (this.input.value.trim() && event.key == 'Enter') {
       this.props.dispatch(
@@ -27,7 +32,7 @@ class TaskForm extends React.Component {
         type="text"
         placeholder="What would you like to get done?"
         ref={node => this.input = node}
-        onKeyDown={event => this.addTaskOnKeyDown(event)}
+        onKeyDown={this._addTaskOnKeyDown}
       />
     );
   }

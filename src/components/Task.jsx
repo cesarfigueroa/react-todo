@@ -1,21 +1,43 @@
 import React from 'react';
+import shallowCompare from 'react-addons-shallow-compare';
 import classNames from 'classnames';
 import Checkbox from './Checkbox';
 
-const Task = ({ title, isComplete, onToggleClick, onRemoveClick }) => {
-  let titleClass = classNames({
-    'task-title': true,
-    'task-title--completed': isComplete
-  });
+class Task extends React.Component {
+  constructor(props) {
+    super(props);
 
-  return (
-    <div className="task">
-      <Checkbox isChecked={isComplete} onClick={onToggleClick} />
-      <span className={titleClass}>{title}</span>
-      <button className="task-button" onClick={onRemoveClick}>&times;</button>
-    </div>
-  );
-};
+    this._onToggleClick = this.props.onToggleClick.bind(this, this.props.id);
+    this._onRemoveClick = this.props.onRemoveClick.bind(this, this.props.id);
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    return shallowCompare(this, nextProps, nextState);
+  }
+
+  titleClass() {
+    return classNames({
+      'task-title': true,
+      'task-title--completed': this.props.isComplete
+    });
+  }
+
+  render() {
+    return (
+      <div className="task">
+        <Checkbox
+          isChecked={this.props.isComplete}
+          onClick={this._onToggleClick}
+        />
+        <span className={this.titleClass()}>{this.props.title}</span>
+        <button
+          className="task-button"
+          onClick={this._onRemoveClick}
+        >&times;</button>
+      </div>
+    );
+  }
+}
 
 Task.propTypes = {
   title: React.PropTypes.string.isRequired,

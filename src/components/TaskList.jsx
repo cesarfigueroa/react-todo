@@ -8,8 +8,8 @@ const TaskList = ({ tasks, onToggleClick, onRemoveClick }) => {
         return (
           <Task
             key={task.id}
-            onToggleClick={() => onToggleClick(task.id)}
-            onRemoveClick={() => onRemoveClick(task.id)}
+            onToggleClick={onToggleClick}
+            onRemoveClick={onRemoveClick}
             {...task}
           />
         );
