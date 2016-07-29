@@ -10,8 +10,8 @@ const TaskList = ({ tasks, onToggleClick, onRemoveClick }) => {
           key={task.get('id')}
           title={task.get('title')}
           isComplete={task.get('isComplete')}
-          onToggleClick={() => onToggleClick(task.get('id'))}
-          onRemoveClick={() => onRemoveClick(task.get('id'))}
+          onToggleClick={onToggleClick}
+          onRemoveClick={onRemoveClick}
         />
       ))}
     </div>

@@ -1,12 +1,12 @@
 import React from 'react';
 
 import TaskForm from '../components/TaskForm';
-import TaskListContainer from '../containers/TaskListContainer';
+import ProjectListContainer from '../containers/ProjectListContainer';
 
 const App = () => {
   return (
     <div>
-      <TaskListContainer />
+      <ProjectListContainer />
       <TaskForm />
     </div>
   );

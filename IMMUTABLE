@@ -1,0 +1,46 @@
+// import { Map, List } from 'immutable';
+// (() => {
+//   let tasks = Map({
+//     1: Map({ id: 1, title: 'Task 1', isComplete: false }),
+//     2: Map({ id: 2, title: 'Task 2', isComplete: false })
+//   });
+
+//   let taskList = List.of(
+//     Map({ id: 1, title: 'Task 1', isComplete: false }),
+//     Map({ id: 2, title: 'Task 2', isComplete: false })
+//   );
+
+//   // Makes updating HARD and EXPENSIVE
+//   let projectList = List.of(
+//     Map({
+//       id: 1,
+//       title: 'Project 1',
+//       tasks: List.of(
+//         Map({ id: 1, title: 'Task 1', isComplete: false }),
+//         Map({ id: 2, title: 'Task 2', isComplete: false })
+//       )
+//     })
+//   );
+
+//   let manualTasks = Map();
+//   let manualTasksPlusOne = manualTasks.set(1, Map({ id: 1, title: 'Task 1', isComplete: false }));
+//   let manualTasksPlusTwo = manualTasksPlusOne.set(2, Map({ id: 2, title: 'Task 2', isComplete: false }));
+//   let manualTasksPlusThree = manualTasksPlusTwo.set(3, Map({ id: 3, title: 'Task 3', isComplete: false }));
+
+//   // ADD_TASK
+
+//   let tasksWithExtra = tasks.set(3, Map({ id: 3, title: 'Task 3', isComplete: false }));
+
+//   // TOGGLE_TASK
+
+//   let tasksWithToggledTask = tasks.updateIn(['2', 'isComplete'], bool => !bool);
+//   let tasksWithToggledTaskUsingNumericKeys = tasks.updateIn([2, 'isComplete'], bool => !bool);
+
+//   // REMOVE_TASK
+
+//   let tasksMinusLast = tasksWithExtra.remove(3);
+//   let tasksPotentiallyMinusSecond = tasksWithExtra.remove(2);
+//   let tasksMinusSecond = manualTasksPlusThree.remove(2);
+
+//   debugger
+// })();

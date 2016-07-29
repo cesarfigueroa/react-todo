@@ -1,0 +1,18 @@
+Better :)
+<App>
+  <ProjectForm>
+  <ProjectList @connect>
+    <Project>
+      <TaskList @connect>
+        <Task>
+          <Task.View isEditing={false}>
+          <Task.Editor isEditing={true}>
+      <TaskForm>
+
+Naive :|
+<App>
+  <Board @connect>
+    <List>
+      <Task>
+      <Form>
+    <List>

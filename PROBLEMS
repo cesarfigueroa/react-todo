@@ -1,0 +1,13 @@
+NORMALIZATION
+
+- [ ] Managing the store shape
+- [ ] Returning data for use in components
+- [ ] Storing ids for use in components
+- [ ] Figure out when/where to "normalize" data struture
+- [ ] Look into normalizr package
+- [ ] O(n²) problem with iterating? #recall
+
+IMMUTABLE.JS
+
+- [ ] Build reselect for Immutable?
+- [ ] Conflict with native Map/List?

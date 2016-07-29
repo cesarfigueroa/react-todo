@@ -1,0 +1,8 @@
+- [x] Improve performance on lookup (ids as keys in tasks)
+- [x] Implement combineReducers for Immutable.js
+  - [ ] Add tests
+- [ ] Review tests for projects reducer
+- [ ] Make action creator arguments consistent (or object based). Ugh.
+  - [ ] Combine multiple actions (e.g. ADD_TASK + ADD_TASK_TO_PROJECT) so
+        they're handled in the same reducer return value AND trigger a single
+        render
