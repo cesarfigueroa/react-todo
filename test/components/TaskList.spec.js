@@ -2,7 +2,6 @@ import { expect } from 'chai';
 import React from 'react';
 import { List, Map } from 'immutable';
 import ReactTestUtils from 'react-addons-test-utils';
-
 import TaskList from '../../src/components/TaskList';
 
 describe('TaskList', function() {
