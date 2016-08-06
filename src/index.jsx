@@ -1,17 +1,17 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { render } from 'react-dom';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-
+import { fromJS } from 'immutable';
 import rootReducer from './reducers';
 import App from './components/App';
 
 const store = createStore(
   rootReducer,
-  JSON.parse(localStorage.getItem('store')) || undefined
+  fromJS(JSON.parse(localStorage.getItem('store'))) || undefined
 );
 
-ReactDOM.render(
+render(
   <Provider store={store}>
     <App />
   </Provider>

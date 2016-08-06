@@ -27,6 +27,8 @@
   "homepage": "https://github.com/cesarfigueroa/react-todo#readme",
   "dependencies": {
     "classnames": "^2.2.5",
+    "immutable": "^3.8.1",
+    "node-uuid": "^1.4.7",
     "react": "^15.2.0",
     "react-dom": "^15.2.0",
     "react-redux": "^4.4.5",
@@ -39,6 +41,7 @@
     "babel-preset-react": "^6.11.1",
     "babel-register": "^6.9.0",
     "chai": "^3.5.0",
+    "chai-immutable": "^1.6.0",
     "chai-spies": "^0.7.1",
     "del": "^2.2.1",
     "eslint": "^3.0.1",
