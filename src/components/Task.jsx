@@ -1,21 +1,27 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import classNames from 'classnames';
 import Checkbox from './Checkbox';
 
-const Task = ({ title, isComplete, onToggleClick, onRemoveClick }) => {
-  let titleClass = classNames({
-    'task-title': true,
-    'task-title--completed': isComplete
-  });
+class Task extends PureComponent {
+  titleClass(isComplete) {
+    return classNames({
+      'task-title': true,
+      'task-title--completed': isComplete
+    });
+  }
 
-  return (
-    <div className="task">
-      <Checkbox isChecked={isComplete} onClick={onToggleClick} />
-      <span className={titleClass}>{title}</span>
-      <button className="task-button" onClick={onRemoveClick}>&times;</button>
-    </div>
-  );
-};
+  render() {
+    const { title, isComplete, onToggleClick, onRemoveClick } = this.props;
+
+    return (
+      <div className="task">
+        <Checkbox isChecked={isComplete} onClick={onToggleClick} />
+        <span className={this.titleClass(isComplete)}>{title}</span>
+        <button className="task-button" onClick={onRemoveClick}>&times;</button>
+      </div>
+    );
+  }
+}
 
 Task.propTypes = {
   title: React.PropTypes.string.isRequired,
