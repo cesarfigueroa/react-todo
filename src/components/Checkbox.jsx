@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { PropTypes, PureComponent } from 'react';
 import classNames from 'classnames';
 
 class Checkbox extends PureComponent {
@@ -16,8 +16,8 @@ class Checkbox extends PureComponent {
 }
 
 Checkbox.propTypes = {
-  isChecked: React.PropTypes.bool.isRequired,
-  onClick: React.PropTypes.func
+  isChecked: PropTypes.bool.isRequired,
+  onClick: PropTypes.func
 };
 
 export default Checkbox;

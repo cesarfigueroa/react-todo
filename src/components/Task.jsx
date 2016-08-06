@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { PropTypes, PureComponent } from 'react';
 import classNames from 'classnames';
 import Checkbox from './Checkbox';
 
@@ -24,10 +24,10 @@ class Task extends PureComponent {
 }
 
 Task.propTypes = {
-  title: React.PropTypes.string.isRequired,
-  isComplete: React.PropTypes.bool.isRequired,
-  onToggleClick: React.PropTypes.func.isRequired,
-  onRemoveClick: React.PropTypes.func.isRequired
+  title: PropTypes.string.isRequired,
+  isComplete: PropTypes.bool.isRequired,
+  onToggleClick: PropTypes.func.isRequired,
+  onRemoveClick: PropTypes.func.isRequired
 };
 
 export default Task;

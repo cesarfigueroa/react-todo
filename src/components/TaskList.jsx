@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { PropTypes, PureComponent } from 'react';
 import { List } from 'immutable';
 import Task from '../components/Task';
 
@@ -24,8 +24,8 @@ class TaskList extends PureComponent {
 }
 
 TaskList.propTypes = {
-  tasks: React.PropTypes.instanceOf(List).isRequired,
-  onClick: React.PropTypes.func
+  tasks: PropTypes.instanceOf(List).isRequired,
+  onClick: PropTypes.func
 };
 
 export default TaskList;
