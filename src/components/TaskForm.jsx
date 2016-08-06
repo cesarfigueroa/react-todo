@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { v4 as uuid } from 'node-uuid';
 
-class TaskForm extends React.Component {
+class TaskForm extends Component {
   onKeyDown(event) {
     let value = this.input.value.trim();
 
