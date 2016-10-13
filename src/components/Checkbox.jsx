@@ -1,18 +1,23 @@
-import React from 'react';
+import React, { PropTypes, PureComponent } from 'react';
 import classNames from 'classnames';
 
-const Checkbox = ({ isChecked, onClick }) => {
-  let checkboxClass = classNames({
-    'checkbox': true,
-    'checkbox--checked': isChecked
-  });
+class Checkbox extends PureComponent {
+  checkboxClass(isChecked) {
+    return classNames({
+      'checkbox': true,
+      'checkbox--checked': isChecked
+    });
+  }
 
-  return <b className={checkboxClass} onClick={onClick} />;
-};
+  render() {
+    const { isChecked, onClick } = this.props;
+    return <b className={this.checkboxClass(isChecked)} onClick={onClick} />;
+  }
+}
 
 Checkbox.propTypes = {
-  isChecked: React.PropTypes.bool.isRequired,
-  onClick: React.PropTypes.func
+  isChecked: PropTypes.bool.isRequired,
+  onClick: PropTypes.func
 };
 
 export default Checkbox;
