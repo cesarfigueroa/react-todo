@@ -1,7 +1,7 @@
 import { List, Map } from 'immutable';
 import { ADD_TASK, TOGGLE_TASK, REMOVE_TASK } from '../constants/actionTypes';
 
-const tasks = (state = List(), action) => {
+function tasks(state = List(), action) {
   switch (action.type) {
   case ADD_TASK:
     return state.push(Map({
@@ -22,6 +22,6 @@ const tasks = (state = List(), action) => {
   default:
     return state;
   }
-};
+}
 
 export default tasks;
