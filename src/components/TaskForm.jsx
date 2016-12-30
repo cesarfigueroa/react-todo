@@ -1,5 +1,4 @@
-import React, { Component } from 'react';
-import { v4 as uuid } from 'node-uuid';
+import React, { Component, PropTypes } from 'react';
 
 class TaskForm extends Component {
   constructor() {
@@ -20,7 +19,7 @@ class TaskForm extends Component {
     const hasValue = value.trim() !== '';
 
     if (hasValue && event.key === 'Enter') {
-      this.props.addTask(uuid(), value);
+      this.props.onInputKeyEnter(value);
       this.setState({ value: '' });
     }
   }
@@ -37,5 +36,9 @@ class TaskForm extends Component {
     );
   }
 }
+
+TaskForm.propTypes = {
+  onInputKeyEnter: PropTypes.func
+};
 
 export default TaskForm;
