@@ -3,21 +3,17 @@ import classNames from 'classnames';
 import Checkbox from './Checkbox';
 
 class Task extends PureComponent {
-  titleClass(isComplete) {
-    return classNames({
-      'task-title': true,
-      'task-title--completed': isComplete
-    });
-  }
-
   render() {
-    const { title, isComplete, onToggleClick, onRemoveClick } = this.props;
+    const titleClassNames = classNames({
+      'task-title': true,
+      'task-title--completed': this.props.isComplete
+    });
 
     return (
       <div className="task">
-        <Checkbox isChecked={isComplete} onClick={onToggleClick} />
-        <span className={this.titleClass(isComplete)}>{title}</span>
-        <button className="task-button" onClick={onRemoveClick}>&times;</button>
+        <Checkbox isChecked={this.props.isComplete} onClick={this.props.onToggleClick} />
+        <span className={titleClassNames}>{this.props.title}</span>
+        <button className="task-button" onClick={this.props.onRemoveClick}>&times;</button>
       </div>
     );
   }
