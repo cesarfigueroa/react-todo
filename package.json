@@ -7,7 +7,8 @@
     "start": "gulp assets:watch",
     "build": "NODE_ENV=production gulp assets",
     "lint": "eslint . --ext .js,.jsx",
-    "test": "mocha --compilers js:babel-register --recursive --inline-diffs"
+    "test": "mocha --compilers js:babel-register --recursive --inline-diffs",
+    "watch": "node scripts/watch.js"
   },
   "repository": {
     "type": "git",
@@ -50,6 +51,7 @@
     "gulp-sass": "^2.3.2",
     "gulp-uglify": "^1.5.4",
     "mocha": "^2.5.3",
+    "postcss": "^5.2.8",
     "react-addons-test-utils": "^15.3.0",
     "webpack": "^1.13.1",
     "webpack-dev-server": "^1.14.1"
