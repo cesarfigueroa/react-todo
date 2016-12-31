@@ -4,17 +4,16 @@ import Task from '../components/Task';
 
 class TaskList extends PureComponent {
   render() {
-    const { tasks, onToggleClick, onRemoveClick } = this.props;
     return (
       <div>
-        {tasks.map(task => {
+        {this.props.tasks.map(task => {
           return (
             <Task
               key={task.get('id')}
               title={task.get('title')}
               isComplete={task.get('isComplete')}
-              onToggleClick={() => onToggleClick(task.get('id'))}
-              onRemoveClick={() => onRemoveClick(task.get('id'))}
+              onToggleClick={() => this.props.onToggleClick(task.get('id'))}
+              onRemoveClick={() => this.props.onRemoveClick(task.get('id'))}
             />
           );
         })}

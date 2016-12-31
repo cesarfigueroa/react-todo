@@ -1,24 +1,17 @@
-import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { toggleTask, removeTask } from '../actions/tasks';
 import TaskList from '../components/TaskList';
 
-const mapStateToProps = state => {
+function mapStateToProps(state) {
   return {
     tasks: state.get('tasks')
   };
-};
+}
 
-const mapDispatchToProps = dispatch => {
-  return bindActionCreators({
+export default connect(
+  mapStateToProps,
+  {
     onToggleClick: toggleTask,
     onRemoveClick: removeTask
-  }, dispatch);
-};
-
-const TaskListContainer = connect(
-  mapStateToProps,
-  mapDispatchToProps
+  }
 )(TaskList);
-
-export default TaskListContainer;
