@@ -8,7 +8,8 @@ import App from './components/App';
 
 const store = createStore(
   rootReducer,
-  fromJS(JSON.parse(localStorage.getItem('store'))) || undefined
+  fromJS(JSON.parse(localStorage.getItem('store'))) || undefined,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 
 render(
