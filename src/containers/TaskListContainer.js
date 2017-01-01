@@ -1,17 +1,11 @@
 import { connect } from 'react-redux';
-import { toggleTask, removeTask } from '../actions/tasks';
 import TaskList from '../components/TaskList';
 
 function mapStateToProps(state) {
   return {
+    editableTask: state.getIn(['ui', 'editableTask']),
     tasks: state.get('tasks')
   };
 }
 
-export default connect(
-  mapStateToProps,
-  {
-    onToggleClick: toggleTask,
-    onRemoveClick: removeTask
-  }
-)(TaskList);
+export default connect(mapStateToProps)(TaskList);
