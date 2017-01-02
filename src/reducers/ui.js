@@ -1,7 +1,7 @@
-import { Map } from 'immutable';
+import Immutable from 'immutable';
 import { TOGGLE_TASK_EDITOR } from '../constants/actionTypes';
 
-const initialState = Map({
+const initialState = Immutable.Map({
   editableTask: null
 });
 

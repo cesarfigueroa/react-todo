@@ -1,4 +1,4 @@
-import { List, Map } from 'immutable';
+import Immutable from 'immutable';
 import {
   ADD_TASK,
   REMOVE_TASK,
@@ -19,10 +19,10 @@ function task(state, action) {
   }
 }
 
-function tasks(state = List(), action) {
+function tasks(state = Immutable.List(), action) {
   switch (action.type) {
   case ADD_TASK:
-    return state.push(Map({
+    return state.push(Immutable.Map({
       id: action.id,
       title: action.title,
       isComplete: false
