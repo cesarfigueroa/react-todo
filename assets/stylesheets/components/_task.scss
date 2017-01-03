@@ -1,20 +1,16 @@
 .task {
-  -webkit-user-select: none;
   align-items: center;
   border-bottom: 1px solid $color-lightGray;
   display: flex;
   height: 54px;
   padding: 0 16px;
+  user-select: none;
 }
 
 .task-title {
   flex: 1;
   font: 15px 'Helvetica Neue';
   padding-left: 12px;
-}
-
-.task-title--completed {
-  color: gray;
 }
 
 .task-button {
@@ -33,5 +29,34 @@
         display: block;
       }
     }
+  }
+}
+
+.task-saveButton {
+  background: $color-blue;
+  border: 0;
+  border-radius: 3px;
+  color: $color-white;
+  cursor: pointer;
+  font: 15px 'Helvetica Neue';
+  outline: 0;
+}
+
+.task-input {
+  border: 0;
+  flex: 1;
+  font: 15px 'Helvetica Neue';
+  outline: 0;
+}
+
+// States
+
+.task-title--completed {
+  color: gray;
+}
+
+.task--editing {
+  .task-input {
+    font-style: italic;
   }
 }

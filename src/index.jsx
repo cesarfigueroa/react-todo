@@ -8,7 +8,8 @@ import App from './components/App';
 
 const store = createStore(
   rootReducer,
-  fromJS(JSON.parse(localStorage.getItem('store'))) || undefined
+  fromJS(JSON.parse(localStorage.getItem('store'))) || undefined,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 
 render(
@@ -18,5 +19,7 @@ render(
 , document.getElementById('root'));
 
 store.subscribe(() => {
-  localStorage.setItem('store', JSON.stringify(store.getState()));
+  localStorage.setItem('store', JSON.stringify(
+    store.getState().filterNot((v, k) => ['tasks'].indexOf(k) === -1)
+  ));
 });

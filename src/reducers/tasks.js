@@ -1,22 +1,36 @@
-import { List, Map } from 'immutable';
-import { ADD_TASK, TOGGLE_TASK, REMOVE_TASK } from '../constants/actionTypes';
+import Immutable from 'immutable';
+import {
+  ADD_TASK,
+  REMOVE_TASK,
+  TOGGLE_TASK,
+  UPDATE_TASK
+} from '../constants/actionTypes';
 
-function tasks(state = List(), action) {
+function task(state, action) {
+  switch (action.type) {
+  case TOGGLE_TASK:
+    return state.get('id') === action.id ?
+      state.update('isComplete', isComplete => !isComplete) :
+      state;
+  case UPDATE_TASK:
+    return state.get('id') === action.id ? state.set('title', action.title) : state;
+  default:
+    return state;
+  }
+}
+
+function tasks(state = Immutable.List(), action) {
   switch (action.type) {
   case ADD_TASK:
-    return state.push(Map({
+    return state.push(Immutable.Map({
       id: action.id,
       title: action.title,
       isComplete: false
     }));
   case TOGGLE_TASK:
-    return state.map(task => {
-      if (task.get('id') === action.id) {
-        return task.update('isComplete', isComplete => !isComplete);
-      } else {
-        return task;
-      }
-    });
+    return state.map(item => task(item, action));
+  case UPDATE_TASK:
+    return state.map(item => task(item, action));
   case REMOVE_TASK:
     return state.filterNot(task => task.get('id') === action.id);
   default:

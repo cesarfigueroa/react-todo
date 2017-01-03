@@ -1,13 +1,13 @@
 import { expect } from 'chai';
 import React from 'react';
-import { List, Map } from 'immutable';
+import Immutable from 'immutable';
 import ReactTestUtils from 'react-addons-test-utils';
 import TaskList from '../../src/components/TaskList';
 
 describe('TaskList', function() {
   before(function() {
-    let tasks = List.of(
-      Map({ id: 1, title: 'Buy bread', isComplete: true })
+    let tasks = Immutable.List.of(
+      Immutable.Map({ id: 1, title: 'Buy bread', isComplete: true })
     );
 
     let renderer = ReactTestUtils.createRenderer();

@@ -1,6 +1,6 @@
 import React, { PropTypes, PureComponent } from 'react';
 import { List } from 'immutable';
-import Task from '../components/Task';
+import TaskContainer from '../containers/TaskContainer';
 
 class TaskList extends PureComponent {
   render() {
@@ -8,12 +8,12 @@ class TaskList extends PureComponent {
       <div>
         {this.props.tasks.map(task => {
           return (
-            <Task
+            <TaskContainer
               key={task.get('id')}
+              id={task.get('id')}
               title={task.get('title')}
               isComplete={task.get('isComplete')}
-              onToggleClick={() => this.props.onToggleClick(task.get('id'))}
-              onRemoveClick={() => this.props.onRemoveClick(task.get('id'))}
+              isEditing={task.get('id') === this.props.editableTask}
             />
           );
         })}
@@ -23,8 +23,8 @@ class TaskList extends PureComponent {
 }
 
 TaskList.propTypes = {
-  tasks: PropTypes.instanceOf(List).isRequired,
-  onClick: PropTypes.func
+  editableTask: PropTypes.string,
+  tasks: PropTypes.instanceOf(List).isRequired
 };
 
 export default TaskList;
